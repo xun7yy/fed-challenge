@@ -98,9 +98,16 @@ h5 {
   margin: 40px -27px 40px -27px;
 }
 .page .cards .card {
+  cursor: pointer;
   margin: 35px 27px;
   background: #FFFFFF;
   box-shadow: 0px 15px 35px rgba(50, 50, 93, 0.1), 0px 5px 15px rgba(0, 0, 0, 0.07);
+  transition: box-shadow .3s ease-in-out;
+  transition: transform .3s ease-in-out;
+}
+.page .cards .card:hover {
+  box-shadow: 0px 20px 35px rgba(17, 17, 35, 0.3), 0px 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translate(0,-5px)
 }
 .page .cards .card .card-top {
   background: linear-gradient(213.14deg, #2C2C2C 6.85%, #141414 93.15%), #2C2E30;
@@ -120,6 +127,11 @@ h5 {
   font-size: 18px;
   line-height: 24px;
   padding: 0 32px 40px 32px;
+  height: 112px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
 }
 .page .cta {
   background-image: url("./images/cta-bg.png");
@@ -186,6 +198,9 @@ h5 {
     background-repeat: no-repeat;
     background-position-y: bottom;
     background-size: contain;
+  }
+  .page .cards .card .card-bottom .card-text{
+    height: 136px;
   }
 
 }
@@ -276,6 +291,7 @@ h5 {
   .page .cards .card .card-bottom .card-text{
     font-size: 16px;
     padding: 0 24px 30px 24px;
+    height: auto;
   }
   .page .cta .cta-inner {
     padding: 0 30px 30px 30px;
