@@ -1,4 +1,4 @@
-const cards = [
+const cardTextList = [
     {
         header:"Header1",
         text:"Maecenas eu mollis odio. Maecenas consequat tincidunt"
@@ -24,40 +24,68 @@ const cards = [
         text:"Donec scelerisque arcu a porta mollis. Nulla a massa sem."
     }
 ];
+const cardConfig = {
+    tag: "div",
+    className: "col-4 col-md-6 col-sm-12",
+    children:[
+        {
+            tag: "div",
+            className: "card",
+            children:[
+                {
+                    tag: "div",
+                    className: "card-top flex-hor justify-content-center",
+                    children:[
+                        {
+                            tag: "img",
+                            className: "card-img",
+                            src:"./images/card-logo-mark.png"
+                        }
+                    ]
+                },
+                {
+                    tag: "div",
+                    className: "card-bottom",
+                    children:[
+                        {
+                            tag: "div",
+                            className: "card-header",
+                            text:"header"
+                        },
+                        {
+                            tag: "div",
+                            className: "card-text text",
+                            text:"text"
+                        },
+                    ]
+                }
+            ]
+        }
+    ]
+}
 
-window.addEventListener('load', (event) => {
-    const cardsContainer = document.getElementById("cards");
-    cards.map((cardContent)=>{
-        let container = document.createElement('div');
-        container.className = 'col-4 col-md-6 col-sm-12';
-        cardsContainer.appendChild(container);
-
-        let card = document.createElement('div');
-        card.className = 'card';
-        container.appendChild(card);
-
-        let cardTop = document.createElement('div');
-        cardTop.className = 'card-top flex-hor justify-content-center';
-        card.appendChild(cardTop);
-
-        let cardImg = document.createElement('img');
-        cardImg.className = 'card-img';
-        cardImg.src = './images/card-logo-mark.png';
-        cardTop.appendChild(cardImg);
-
-        let cardBottom = document.createElement('div');
-        cardBottom.className = 'card-bottom';
-        card.appendChild(cardBottom);
-
-        let cardHeader = document.createElement('div');
-        cardHeader.className = 'card-header';
-        cardHeader.innerText = cardContent.header;
-        cardBottom.appendChild(cardHeader);
-
-        let cardText = document.createElement('div');
-        cardText.className = 'card-text text';
-        cardText.innerText = cardContent.text;
-        cardBottom.appendChild(cardText);
+window.addEventListener('load', () => {
+    const cards = document.getElementById("cards");
+    cardTextList.map((cardText)=>{
+       generateCards(cardText, cardConfig, cards); 
     })
     
 });
+const generateCards = (content, config, parent)=>{
+    const { children } = config;
+    let element = document.createElement(config.tag);
+    element.className = config.className;
+    if(config.text) {
+        element.innerText = content[config.text];
+    }
+    if(config.src) {
+        element.src = config.src;
+    }
+    parent.appendChild(element);
+    if(!children) {
+        return;
+    }
+    for(let childIndex in children) {
+        generateCards(content, children[childIndex], element);
+    }
+}
