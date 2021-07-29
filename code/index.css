@@ -72,6 +72,7 @@ h5 {
   font-family: Merriweather;
   font-size: 36px;
   margin-bottom: 30px;
+  line-height: 47px;
 }
 .hero .hero-text {
   font-size: 19px;
@@ -90,13 +91,9 @@ h5 {
   line-height: 18px;
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
   text-transform: uppercase;
-  
 }
 
 
-.page {
-
-}
 .page .cards {
   margin: 40px -27px 40px -27px;
 }
@@ -178,16 +175,114 @@ h5 {
 
 /* Small Monitor */
 @media only screen and (min-width: 1025px) and (max-width: 1199px) {
-
+  .hero .hero-graphic {
+    width: 100%;
+  }
+  .page .cta .cta-text:last-child {
+    padding-left: 120px;
+  }
+  .page .cta {
+    background-image: url("./images/cta-bg.png");
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: contain;
+  }
 
 }
 
 
 /* Tablet */
 @media screen and (max-width: 1024px) {
-
+  .hero {
+    background-color: #DFF1E8;
+    padding-top: 84px;
+  }
+  .hero .text-container {
+    padding-right: 50px;
+  }
+  .hero .title {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 20px;
+  }
+  .hero .hero-graphic {
+    width: 100%;
+  }
+  .hero .hero-text {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 25px; 
+  }
+  .hero .button {
+    width: 145px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .col-md-6 {
+    width: calc(100%/2);
+  }
+  .page .cards {
+    margin-bottom: 20px;
+  }
+  .page .cta .cta-inner {
+    padding: 30px 50px 50px 50px;
+    }
+  .page .cta .cta-text {
+    font-size: 24px;
+    line-height: 28px;
+    padding-bottom: 35px;
+  }
+  .page .cta .cta-text:first-child {
+    padding-right: 50px;
+  }
+  .page .cta .cta-text:last-child {
+    padding-left: 50px;
+  }
+  .page .cta {
+    background-image: url("./images/cta-bg.png");
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-size: contain;
+  }
 }
 
 /* Mobile */
 @media only screen and (max-width: 767px) {
+  .col-sm-12 {
+    width: 100%;
+  }
+  .hero {
+    padding: 30px 0 30px 0;
+  }
+  .hero .title {
+    font-size: 35px;
+  }
+  .hero .hero-graphic {
+    display: none;
+  }
+  .hero .text-container {
+    padding: 30px;
+  }
+  .page .cards {
+    margin: 15px;
+  }
+  .page .cards .card {
+    margin: 25px 27px;
+  }
+  .page .cards .card .card-bottom .card-header{
+    font-size: 20px;
+    margin: 20px 24px 15px 24px;
+  }
+  .page .cards .card .card-bottom .card-text{
+    font-size: 16px;
+    padding: 0 24px 30px 24px;
+  }
+  .page .cta .cta-inner {
+    padding: 0 30px 30px 30px;
+  }
+  .page .cta .cta-text {
+    font-size: 20px;
+    line-height: 24px;
+    padding-bottom: 35px;
+  }
 }
